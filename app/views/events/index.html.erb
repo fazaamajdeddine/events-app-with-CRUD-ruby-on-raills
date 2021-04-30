@@ -1,0 +1,88 @@
+<!-- This is an example component -->
+<div>
+  <div class="relative items-center justify-center">
+    <!-- Header Text-->
+    <h1 class="text-center text-2xl font-bold p-4 bg-gray-800 text-gray-400">Events</h1>
+    <!-- All Cards Container -->
+    <div class="lg:flex items-center container mx-auto my-auto">
+      <% @events.each do |event| %>
+
+        
+
+      <!-- Card 1 -->
+      <div class="lg:m-4 shadow-md hover:shadow-lg hover:bg-gray-100 rounded-lg bg-white my-12 mx-8">
+        <!-- Card Image -->
+        <% if event.image.attached?%>
+          <%= image_tag event.image, style: "width: 500px; display:block", class: "overflow-hidden"%>
+        <%end%>
+        <!-- Card Content -->
+        <div class="p-4">
+        <h2 class="font-medium text-gray-600 text-lg my-2 uppercase">
+        <%= event.title%>
+        </h2>
+          <p class="text-justify">
+          <%= event.body%>
+          </p>
+          <div class="mt-5">
+                        <button class="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none"><%= link_to 'READ MORE', event %></button><br>
+
+                        <button class="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none"><%= link_to 'Edit', edit_event_path(event) %></button><br>
+
+                        <button class="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+
+            
+
+          </div>
+        </div>
+      </div>
+
+      <%end%>
+
+      
+    
+    </div>
+    <!-- Footer -->
+    <div class="mt-10 bottom-0 text-center">
+      <h4 class="text-sm font-semibold text-gray-600 "> <%= link_to '➕ New Event', new_event_path %></h4>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--
+
+<div>
+  <div class="relative items-center justify-center">
+
+    <h1 class="text-center text-2xl font-bold p-4 bg-gray-800 text-gray-400">Events</h1>
+
+      <% @events.each do |event| %>
+    <div class="lg:flex items-center container mx-auto my-auto">
+      <p>
+          <%= event.title%>
+  
+      </p>
+      <p>
+          <% if event.image.attached?%>
+          <%= image_tag event.image, style: "width: 500px; display:block"%>
+    <%end%>
+    
+    </p>
+   <p>
+  <%= event.body%>
+  </p>
+        <%= link_to 'READ MORE', event %>
+        <%= link_to 'Edit', edit_event_path(event) %>
+        <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+  
+
+<% end %>
+
+
+<br>
+<%= link_to 'New Event', new_event_path %>
+
+</div>
+</div>-->

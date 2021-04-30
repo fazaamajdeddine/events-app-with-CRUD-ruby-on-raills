@@ -1,0 +1,36 @@
+<h1 class="text-center text-2xl font-bold p-4 bg-gray-800 text-gray-400">SHOW Events</h1>
+
+<div>
+<div class="relative items-center justify-center">
+
+<div class="lg:flex items-center container mx-auto my-auto">
+    <div class="lg:m-4 shadow-md hover:shadow-lg hover:bg-gray-100 rounded-lg bg-white my-12 mx-8">
+
+        <!-- Card Image -->
+            <% if @event.image.attached?%>
+                <%= image_tag @event.image, style: "width: 500px; display:block"%>
+            <%end%>
+        <!-- Card Content -->
+        <div class="p-4">
+            <h2 class="font-medium text-gray-600 text-lg my-2 uppercase">
+                <%= @event.title%>
+            </h2>
+
+            <p class="text-justify">
+                <%= @event.body%>
+            </p>
+
+            <div class="mt-5">
+                    <button class="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none"><%= link_to 'Edit', edit_event_path(@event) %></button><br>
+                    <button class="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none"><%= link_to 'Back', events_path %></button>
+
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
